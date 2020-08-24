@@ -156,10 +156,8 @@ open class NetSocket: NSObject {
         outputQueue = .init(label: "com.haishinkit.HaishinKit.NetSocket.output", qos: qualityOfService)
         inputStream?.close()
         inputStream?.remove(from: runloop, forMode: .default)
-        inputStream?.delegate = nil
         outputStream?.close()
         outputStream?.remove(from: runloop, forMode: .default)
-        outputStream?.delegate = nil
         self.runloop = nil
         CFRunLoopStop(runloop.getCFRunLoop())
         logger.trace("isDisconnected: \(isDisconnected)")
